@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Srishty Net
+## eCommerce Project
 
 Laravel is a web application framework with expressive, such as:
 
@@ -15,9 +15,9 @@ Laravel is a web application framework with expressive, such as:
 - [Powerful dependency injection container].
 - Multiple back-ends for [session] and [cache] storage.
 - Expressive, intuitive [database ORM].
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Database agnostic [schema migrations].
+- [Robust background job processing].
+- [Real-time event broadcasting].
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
