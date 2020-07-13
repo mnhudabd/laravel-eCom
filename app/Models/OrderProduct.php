@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderProduct extends Model
 {
-    protected $timestamps = false;
+	protected $guarded = [];
+
+    public $timestamps = false;
 
     public function order(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
