@@ -2,7 +2,8 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\User;
+use App\Models\User;
+use Carbon\Carbon;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -17,12 +18,11 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(User::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
+        'name' => $faker->name('male'),
         'email' => $faker->unique()->safeEmail,
         'phone_number' => $faker->phoneNumber,
-        'email_verified_at' => Carbon::now(),
         'password' => bcrypt('secret'),
         'email_verified_at' => Carbon::now(), 
         'remember_token' => Str::random(10),
