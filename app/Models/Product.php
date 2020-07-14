@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Illuminate\Support\Str;
 
 class Product extends Model implements HasMedia
 {
@@ -20,12 +21,12 @@ class Product extends Model implements HasMedia
 
     */
 
-    protected static function boot()
+    protected static function boot() 
     {
-    	parent::boot;
+    	parent::boot();
 
     	static::creating(function ($product) {
-    		$product->slug = str_slug($product->title);
+    		$product -> slug = str::slug($product -> title);
     	});
     }
 
