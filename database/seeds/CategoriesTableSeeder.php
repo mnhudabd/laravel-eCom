@@ -10,8 +10,8 @@ class CategoriesTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
-        factory(Category::class, 10)->create();
+        factory(\App\Models\Category::class, 10)->create();
     }
 }

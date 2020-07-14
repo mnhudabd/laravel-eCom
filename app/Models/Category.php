@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Category extends Model
 {
@@ -14,7 +15,7 @@ class Category extends Model
         parent::boot();
 
         static::creating(function ($category){
-            $category->slug = str_slug($category->title);
+            $category -> slug = str::slug($category -> name);
         });
     }
 
