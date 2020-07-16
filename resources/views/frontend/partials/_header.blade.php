@@ -9,7 +9,7 @@
         <li class="nav-item"><a class="nav-link" href="#">Payment</a></li>
     </ul>
     <ul class="navbar-nav">
-        <li  class="nav-item"><a href="#" class="nav-link"> Call: +8801700000000</a></li>
+        <li  class="nav-item"><a href="#" class="nav-link"> Call: +8801729299208</a></li>
         <!--
         <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> English </a>
@@ -89,14 +89,15 @@
     <div class="collapse navbar-collapse" id="main_nav">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
-          <a class="nav-link pl-0" data-toggle="dropdown" href="#"><strong> <i class="fa fa-bars"></i> &nbsp  All category</strong></a>
+          <a class="nav-link pl-0" data-toggle="dropdown" href="#"><strong> <i class="fa fa-bars"></i> &nbsp  Categories</strong></a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Foods and Drink</a>
-            <a class="dropdown-item" href="#">Home interior</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Category 1</a>
-            <a class="dropdown-item" href="#">Category 2</a>
-            <a class="dropdown-item" href="#">Category 3</a>
+            
+            
+
+                @foreach($categories as $category)
+
+                    <a class="dropdown-item" href="{{ $category -> slug }}"> {{ $category -> name }} </a>
+                @endforeach
           </div>
         </li>
         <li class="nav-item">

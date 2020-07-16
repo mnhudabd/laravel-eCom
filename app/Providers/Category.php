@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Providers;
 
-use App\Models\Category;
+use App\Providers\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -10,7 +10,7 @@ class Category extends Model
 {
     protected $guarded = [];
 
-    public static function boot()
+    public static function boot(): void
     {
         parent::boot();
 

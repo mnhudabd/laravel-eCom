@@ -61,7 +61,7 @@
             </div>
             <div class="col-md-8 text-md-center">
                 <span  class="px-2">info@sristhy.net</span>
-                <span  class="px-2">+8801700000000</span>
+                <span  class="px-2">+8801729299208</span>
                 <span  class="px-2">Street name 123, Avanue abc</span>
             </div>
             <div class="col-md-2 text-md-right text-muted">
