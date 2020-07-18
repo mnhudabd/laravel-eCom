@@ -105,8 +105,21 @@
 					</div> <!-- col.// -->
 				</div> <!-- row.// -->
 
-				<a href="#" class="btn  btn-primary"> Buy now </a>
-				<a href="#" class="btn  btn-outline-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
+
+
+
+				<dl class="row">
+				  <dt class="col-sm-5"><a href="#" class="btn  btn-primary"> Buy now </a></dt>
+				  <dd class="col-sm-7">
+				  	<form action="{{ route('cart.add') }}" method="post">
+						@csrf
+						<input type="hidden" name="product_id" value="{{ $product->id }}">
+						<button type="submit" class="btn  btn-outline-primary"> 
+							<span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  
+						</button>
+					</form>
+					</dd>
+				</dl>
 			</article> <!-- product-info-aside .// -->
 					</main> <!-- col.// -->
 				</div> <!-- row.// -->

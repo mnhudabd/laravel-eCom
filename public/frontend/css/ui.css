@@ -973,6 +973,16 @@ a[class*='card'] {
     overflow: hidden; }
     .rating-stars li.stars-active i {
       color: orange; }
+/* product details size */
+    .form-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex !important;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    
+}
 
 /* ================= TRACKING ============== */
 .tracking-wrap {

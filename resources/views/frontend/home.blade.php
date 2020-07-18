@@ -38,20 +38,33 @@
                     </ul>
                     <span class="label-rating text-muted"> 34 reviws</span>
                 </div>
-                    <div class="price mt-1">‎ ৳ {{ $product-> price }}</div>
+                    <div class="price mt-1">‎
+                        @if($product->sale_prise == null && $product->sale_prise > 0)
+
+                     ৳ <strike>{{ $product-> price }}</strike> ৳ {{ $product-> sale_price }}
+                     @else
+
+                      ৳{{ $product-> price }}
+
+                      @endif
+                    </div>
 
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">
+                        <button type="button" class="btn btn-sm btn-outline-primary">
                             Add to wishlist                            
                         </button>
                     </div>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">
-                             Add to Cart                            
-                        </button>
+                        <form action="{{ route('cart.add') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <button type="submit" class="btn btn-sm btn-outline-primary"> 
+                                <span class="text">Add to cart</span>  
+                            </button>
+                        </form>
                     </div>
                 </div> 
                 

@@ -4,7 +4,7 @@
 <nav class="navbar navbar-dark navbar-expand p-0 bg-primary">
 <div class="container">
     <ul class="navbar-nav d-none d-md-flex mr-auto">
-        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('frontend.home') }}">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Delivery</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Payment</a></li>
     </ul>
@@ -29,7 +29,7 @@
     <div class="container">
 <div class="row align-items-center">
     <div class="col-lg-2 col-6">
-        <a href="{{ url('home') }}" class="brand-wrap">
+        <a href="{{ route('frontend.home') }}" class="brand-wrap">
             <img class="logo" src="{{ asset('images/logos/'.'logo.png')}}">
         </a> <!-- brand-wrap.// -->
     </div>
@@ -61,7 +61,7 @@
                         @if (Route::has('login'))
                             <div class="top-right links">
                                 @auth
-                                    <a href="{{ url('/home') }}">Home</a>
+                                    <a href="{{ route('frontend.home') }}">Home</a>
                                 @else
                                     <a href="{{ route('login') }}">Login</a> | 
 
