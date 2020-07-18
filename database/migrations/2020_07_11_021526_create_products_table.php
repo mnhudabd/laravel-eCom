@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('title', 128)->unique();
             $table->string('slug', 158)->unique();
             $table->longText('description');
-            $table->tinyInteger('in_stock')->default(0);
+            $table->tinyInteger('in_stock')->default(1);
             $table->decimal('price', 8, 2);
             $table->decimal('sale_price', 8, 2)->nullable();
             $table->tinyInteger('active')->default(1);

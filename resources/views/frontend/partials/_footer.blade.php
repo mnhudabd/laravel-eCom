@@ -6,12 +6,10 @@
         <section class="footer-top  padding-y">
             <div class="row">
                 <aside class="col-md col-6">
-                    <h6 class="title">Brands</h6>
+                    <h6 class="title">About Us</h6>
                     <ul class="list-unstyled">
-                        <li> <a href="#">Adidas</a></li>
-                        <li> <a href="#">Puma</a></li>
-                        <li> <a href="#">Reebok</a></li>
-                        <li> <a href="#">Nike</a></li>
+                        <li> <a href="#">SRISHTY is a renowned fashion house operating in the Bangladeshi fashion industry since April 2005. The name was chosen to promote creativity within the company and reflect our corporate culture.</a></li>
+                        
                     </ul>
                 </aside>
                 <aside class="col-md col-6">

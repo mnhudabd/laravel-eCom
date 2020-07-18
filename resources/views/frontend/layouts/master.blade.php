@@ -8,6 +8,11 @@
         <title>{{ config('app.name') }}</title>
         <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ mix('css/all.css') }}">
+       
+        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/bootstrap.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/ui.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/responsive.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/fonts/fontawesome/css/all.min.css') }}">
 
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
@@ -55,6 +60,8 @@
 
 
         <script src="{{ mix('js/all.js') }}"></script>
+        <script src="{{ asset('frontend/js/jquery-2.0.0.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/script.js') }}"></script>
         @yield('before_body')
     </body>
 </html>P

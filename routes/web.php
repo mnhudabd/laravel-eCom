@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['namespace' => 'Frontend'], function(){
+	Route::get('/', 'HomeController@showHomePage')->name('frontend.home');
+	Route::get('/product/{id}', 'ProductController@showDetails')->name('product.details');
+	
+});
+
+/*
 Route::get('/', function () {
     return view('frontend.home');
 });
@@ -21,6 +28,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+*/
 
-Route::get('/home', 'HomeController@index')->name('home');

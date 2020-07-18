@@ -5,7 +5,7 @@
 
     @include('frontend.partials._hero')
 
-<!-- ========================= SECTION CONTENT ========================= -->
+<!-- ========================= SECTION POPULAR ========================= -->
 <section class="section-content">
 <div class="container">
 
@@ -13,15 +13,21 @@
     <h3 class="section-title">Popular products</h3>
 </header><!-- sect-heading -->
 
-    
 <div class="row">
+
+    
+   
+    @foreach($products as $product)
     <div class="col-md-3">
         <div href="#" class="card card-product-grid">
-            <a href="#" class="img-wrap"> <img src="images/items/1.jpg"> </a>
+            <a href="{{ route('product.details', $product -> id) }}" class="img-wrap overlay"> 
+                <img class="" src="{{ $product -> getFirstMediaUrl('products') }}" alt="{{ $product -> title }}">  </a> 
             <figcaption class="info-wrap">
-                <a href="#" class="title">Just another product name</a>
+                <a href="{{ route('product.details', $product -> id) }}" class="title">{{ $product -> title }}</a>
                 
-                <div class="rating-wrap">
+                
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="rating-wrap">
                     <ul class="rating-stars">
                         <li style="width:80%" class="stars-active"> 
                             <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
@@ -32,89 +38,47 @@
                     </ul>
                     <span class="label-rating text-muted"> 34 reviws</span>
                 </div>
-                <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-            </figcaption>
-        </div>
-    </div> <!-- col.// -->
-    <div class="col-md-3">
-        <div href="#" class="card card-product-grid">
-            <a href="#" class="img-wrap"> <img src="images/items/2.jpg"> </a>
-            <figcaption class="info-wrap">
-                <a href="#" class="title">Some item name here</a>
-                
-                <div class="rating-wrap">
-                    <ul class="rating-stars">
-                        <li style="width:80%" class="stars-active"> 
-                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                        </li>
-                        <li>
-                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 
-                        </li>
-                    </ul>
-                    <span class="label-rating text-muted"> 34 reviws</span>
+                    <div class="price mt-1">‎ ৳ {{ $product-> price }}</div>
+
                 </div>
-                <div class="price mt-1">$280.00</div> <!-- price-wrap.// -->
-            </figcaption>
-        </div>
-    </div> <!-- col.// -->
-    <div class="col-md-3">
-        <div href="#" class="card card-product-grid">
-            <a href="#" class="img-wrap"> <img src="images/items/3.jpg"> </a>
-            <figcaption class="info-wrap">
-                <a href="#" class="title">Great product name here</a>
+                <div class="d-flex justify-content-between align-items-center">
+                    
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">
+                            Add to wishlist                            
+                        </button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">
+                             Add to Cart                            
+                        </button>
+                    </div>
+                </div> 
                 
-                <div class="rating-wrap">
-                    <ul class="rating-stars">
-                        <li style="width:80%" class="stars-active"> 
-                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                        </li>
-                        <li>
-                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 
-                        </li>
-                    </ul>
-                    <span class="label-rating text-muted"> 34 reviws</span>
-                </div>
-                <div class="price mt-1">$56.00</div> <!-- price-wrap.// -->
             </figcaption>
         </div>
-    </div> <!-- col.// -->
-    <div class="col-md-3">
-        <div href="#" class="card card-product-grid">
-            <a href="#" class="img-wrap"> <img src="images/items/4.jpg"> </a>
-            <figcaption class="info-wrap">
-                <a href="#" class="title">Just another product name</a>
-                
-                <div class="rating-wrap">
-                    <ul class="rating-stars">
-                        <li style="width:80%" class="stars-active"> 
-                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                        </li>
-                        <li>
-                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 
-                        </li>
-                    </ul>
-                    <span class="label-rating text-muted"> 34 reviws</span>
-                </div>
-                <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-            </figcaption>
-        </div>
-    </div> <!-- col.// -->
-</div> <!-- row.// -->
+    </div> 
+    @endforeach
+       
+
+<div class="col-md-12" style="text-align: center;">
+    {{ $products->render() }}
+</div>
+
+</div>
 
 </div> <!-- container .//  -->
+
 </section>
-<!-- ========================= SECTION CONTENT END// ========================= -->
+<!-- ========================= SECTION POPULAR END// ========================= -->
 
-
-
-<!-- ========================= SECTION CONTENT ========================= -->
+<!-- ========================= SECTION NEW ARRIVED ========================= -->
 <section class="section-content">
 <div class="container">
 
 <header class="section-heading">
     <h3 class="section-title">New arrived</h3>
 </header><!-- sect-heading -->
-
 <div class="row">
     <div class="col-md-3">
         <div href="#" class="card card-product-grid">
@@ -204,11 +168,9 @@
 
 </div> <!-- container .//  -->
 </section>
-<!-- ========================= SECTION CONTENT END// ========================= -->
+<!-- ========================= SECTION NEW ARRIVED END// ========================= -->
 
-
-
-<!-- ========================= SECTION CONTENT ========================= -->
+<!-- ========================= SECTION RECOMMENDED ========================= -->
 <section class="section-content padding-bottom-sm">
 <div class="container">
 
@@ -218,6 +180,7 @@
 </header><!-- sect-heading -->
 
 <div class="row">
+
     <div class="col-md-3">
         <div href="#" class="card card-product-grid">
             <a href="#" class="img-wrap"> <img src="images/items/1.jpg"> </a>
@@ -227,6 +190,8 @@
             </figcaption>
         </div>
     </div> <!-- col.// -->
+
+
     <div class="col-md-3">
         <div href="#" class="card card-product-grid">
             <a href="#" class="img-wrap"> <img src="images/items/2.jpg"> </a>
@@ -258,24 +223,6 @@
 
 </div> <!-- container .//  -->
 </section>
-<!-- ========================= SECTION CONTENT END// ========================= -->
-
-
-
-
-
-<!-- ========================= SECTION  ========================= -->
-<section class="section-name padding-y">
-<div class="container">
-
-<h3 class="mb-3">Download Sristhy App </h3>
-
-<a href="#"><img src="images/misc/appstore.png" height="40"></a>
-<a href="#"><img src="images/misc/appstore.png" height="40"></a>
-
-</div><!-- container // -->
-</section>
-<!-- ========================= SECTION  END// ======================= -->
+<!-- ========================= SECTION RECOMMENDED END// ========================= -->
 
 @stop
-

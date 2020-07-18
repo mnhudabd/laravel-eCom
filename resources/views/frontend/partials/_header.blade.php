@@ -13,6 +13,7 @@
         <!--
         <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> English </a>
+            
             <ul class="dropdown-menu dropdown-menu-right" style="max-width: 100px;">
                 <li><a class="dropdown-item" href="#">Arabic</a></li>
                 <li><a class="dropdown-item" href="#">Russian </a></li>
@@ -28,7 +29,7 @@
     <div class="container">
 <div class="row align-items-center">
     <div class="col-lg-2 col-6">
-        <a href="http://bootstrap-ecommerce.com/" class="brand-wrap">
+        <a href="{{ url('home') }}" class="brand-wrap">
             <img class="logo" src="{{ asset('images/logos/'.'logo.png')}}">
         </a> <!-- brand-wrap.// -->
     </div>
