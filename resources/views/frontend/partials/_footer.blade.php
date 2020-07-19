@@ -58,7 +58,7 @@
                 <p class="text-muted"> &copy {{ config('app.name') }} {{ date("Y") }} </p>
             </div>
             <div class="col-md-8 text-md-center">
-                <span  class="px-2">info@sristhy.net</span>
+                <span  class="px-2">info@srishty.net</span>
                 <span  class="px-2">+8801729299208</span>
                 <span  class="px-2">Street name 123, Avanue abc</span>
             </div>

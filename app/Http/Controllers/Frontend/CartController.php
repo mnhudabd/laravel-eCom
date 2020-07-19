@@ -55,11 +55,14 @@ class CartController extends Controller
 
     	}
 
-    	$product = Product::findOrFail($request->('product_id'));
+    	$product = Product::findOrFail($request->input('product_id'));
 
     	$cart['products'] = [
 
-    		'id' => 
-    	]
+    		'id' => $product->id,
+    		'title' => $product->title,
+    		'quantity' => 1,
+    		'price' => $product->price,
+    	];
     }
 }

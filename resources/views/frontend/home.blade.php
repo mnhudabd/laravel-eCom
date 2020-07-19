@@ -39,14 +39,14 @@
                     <span class="label-rating text-muted"> 34 reviws</span>
                 </div>
                     <div class="price mt-1">‎
-                        @if($product->sale_prise == null && $product->sale_prise > 0)
+                        @if($product->sale_prise !==  null && $product->sale_prise > 0)
 
-                     ৳ <strike>{{ $product-> price }}</strike> ৳ {{ $product-> sale_price }}
-                     @else
+                         ৳ <strike>{{ $product-> price }}</strike> ৳ {{ $product-> sale_price }}
+                         @else
 
-                      ৳{{ $product-> price }}
+                          ৳{{ $product-> price }}
 
-                      @endif
+                          @endif
                     </div>
 
                 </div>
