@@ -13,12 +13,11 @@ class CartController extends Controller
     	public function showCart()
     	{
     		
-    		//$data = [];
-    		//$data['cart'] = session()->has('cart') ? session()->get('cart') : [];
+    		$data = [];
+    		$data['cart'] = session()->has('cart') ? session()->get('cart') : [];
 
-    		//return view('frontend.cart', $data);
-    		dd($cart);
-    		
+    		return view('frontend.cart', $data);
+
     	}
     	
     	public function addToCart(Request $request)
