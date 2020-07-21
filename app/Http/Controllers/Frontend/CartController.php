@@ -2,67 +2,57 @@
 
 namespace App\Http\Controllers\Frontend;
 
+
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
 class CartController extends Controller
 {
-    public function showCart()
-    {
+    	public function showCart()
+    	{
+    		
+    		//$data = [];
+    		//$data['cart'] = session()->has('cart') ? session()->get('cart') : [];
 
-    }
-
-    public function addToCart(Request $request)
-    {
-    	$cart = [];
-
-    	$cart['product'] = [
-    		[
-    			'id' => 1,
-
-    			'title' => 1,
-
-    			'quantity' => 1,
-    			'price' = 100,
-
-    		],
-
-    		[
-    			'id' => 2,
-
-    			'title' => 2,
-
-    			'quantity' => 2,
-    			'price' = 100,
-
-    		],
-
-    	];
-
-    	//$cart['total_price'] = 100;
-
-
-    	try {
-    		$this->validate($request, [
-
-    		'product_id' => 'required|numeric',
-
-    	]);
-    	} catch (ValidationException $e){
-
-    		return redirect()->back();
-
+    		//return view('frontend.cart', $data);
+    		dd($cart);
+    		
     	}
+    	
+    	public function addToCart(Request $request)
+    	{
+    		try {
+			$this->validate($request, [
 
-    	$product = Product::findOrFail($request->input('product_id'));
+				'product_id' => 'required|numeric',
+			]);
 
-    	$cart['products'] = [
+		} catch (ValidationExeption $e) {
+			return redirect()->back();
+		}
 
-    		'id' => $product->id,
-    		'title' => $product->title,
-    		'quantity' => 1,
-    		'price' => $product->price,
-    	];
+		$product = Product::findOrFail($request->input('product_id'));
+		$cart = session()->has('cart') ? session()->get('cart') : [];
+
+		if (array_key_exists($product->id, $cart)) {
+			$cart[$product->id]['quantity']++;
+		} else {
+			$cart[$product->id] = [
+				'title' => $product->title,
+				'quantity' => 1,
+				'price' => ($product->sale_price !== null && $product->sale_price > 0 ) ? $product->sale_price : $product->price,
+			];
+
+		}
+	
+		session(['cart' => $cart]);
+
+		session()->flush('message', $product->title.' added to cart');
+
+		return redirect()->route('cart.show');
+
+
     }
 }

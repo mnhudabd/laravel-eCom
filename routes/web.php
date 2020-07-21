@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'Frontend'], function(){
 	Route::get('/', 'HomeController@showHomePage')->name('frontend.home');
-	Route::get('/product/{id}', 'ProductController@showDetails')->name('product.details');
+	Route::get('/product/{slug}', 'ProductController@showDetails')->name('product.details');
 	
 	Route::get('/cart', 'CartController@showCart')->name('cart.show');
 	Route::post('/cart', 'CartController@addToCart')->name('cart.add');

@@ -14,16 +14,13 @@
 </header><!-- sect-heading -->
 
 <div class="row">
-
-    
-   
     @foreach($products as $product)
     <div class="col-md-3">
         <div href="#" class="card card-product-grid">
-            <a href="{{ route('product.details', $product -> id) }}" class="img-wrap overlay"> 
-                <img class="" src="{{ $product -> getFirstMediaUrl('products') }}" alt="{{ $product -> title }}">  </a> 
+            <a href="{{ route('product.details', $product -> slug) }}" class="img-wrap overlay"> 
+                <img class="" src="{{ $product->getFirstMediaUrl('products') }}" alt="{{ $product -> title }}">  </a> 
             <figcaption class="info-wrap">
-                <a href="{{ route('product.details', $product -> id) }}" class="title">{{ $product -> title }}</a>
+                <a href="{{ route('product.details', $product -> slug) }}" class="title">{{ $product -> title }}</a>
                 
                 
                 <div class="d-flex justify-content-between align-items-center">
@@ -38,10 +35,11 @@
                     </ul>
                     <span class="label-rating text-muted"> 34 reviws</span>
                 </div>
-                    <div class="price mt-1">‎
-                        @if($product->sale_prise !==  null && $product->sale_prise > 0)
+                    <div class="price mt-2">‎
 
-                         ৳ <strike>{{ $product-> price }}</strike> ৳ {{ $product-> sale_price }}
+                        @if($product -> sale_price !==  null && $product -> sale_price > 0)
+
+                            ৳ <strike>{{ $product-> price }}</strike> ৳ {{ $product -> sale_price }}
                          @else
 
                           ৳{{ $product-> price }}
@@ -60,7 +58,7 @@
                     <div class="btn-group">
                         <form action="{{ route('cart.add') }}" method="post">
                             @csrf
-                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <input type="hidden" name="product_id" value="{{ $product -> id }}">
                             <button type="submit" class="btn btn-sm btn-outline-primary"> 
                                 <span class="text">Add to cart</span>  
                             </button>

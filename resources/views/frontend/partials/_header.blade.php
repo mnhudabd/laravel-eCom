@@ -56,21 +56,11 @@
                 <a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
                 <div class="text">
                     <span class="text-muted">Welcome!</span>
-                    
                     <div class="flex-center position-ref full-height">
-                        @if (Route::has('login'))
-                            <div class="top-right links">
-                                @auth
-                                    <a href="{{ route('frontend.home') }}">Home</a>
-                                @else
-                                    <a href="{{ route('login') }}">Login</a> | 
-
-                                    @if (Route::has('register'))
-                                        <a href="{{ route('register') }}">Register</a>
-                                    @endif
-                                @endauth
+                            <div class="top-right links">                            
+                                    <a href="#">Login</a> | 
+                                        <a href="#">Register</a>                              
                             </div>
-                        @endif
                     </div>
                 </div>
             </div>
@@ -86,20 +76,15 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="main_nav">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a class="nav-link pl-0" data-toggle="dropdown" href="#"><strong> <i class="fa fa-bars"></i> &nbsp  Categories</strong></a>
           <div class="dropdown-menu">
-            
-            
-
                 @foreach($categories as $category)
-
                     <a class="dropdown-item" href="{{ $category -> slug }}"> {{ $category -> name }} </a>
                 @endforeach
-          </div>
+          </div> 
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Fashion</a>

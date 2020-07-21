@@ -51,7 +51,17 @@
 			</div> <!-- rating-wrap.// -->
 
 			<div class="mb-3">
-				<var class="price h4">৳ {{ $product-> price }}</var>
+				<var class="price h4">
+						@if($product->sale_price !==  null && $product->sale_price > 0)
+
+                         	৳ <strike>{{ $product-> price }}</strike> ৳ {{ $product-> sale_price }}
+                         	@else
+
+                          	৳{{ $product-> price }}
+
+                         @endif
+
+				</var>
 				<!--<span class="text-muted">/per kg</span> -->
 			</div> <!-- price-detail-wrap .// -->
 
@@ -59,14 +69,11 @@
 
 
 			<dl class="row">
-			  <dt class="col-sm-3">Model#</dt>
-			  <dd class="col-sm-9">Odsy-1000</dd>
+			  <dt class="col-sm-3">Brand#</dt>
+			  <dd class="col-sm-9">{{ $product-> model }}</dd>
 
 			  <dt class="col-sm-3">Color</dt>
-			  <dd class="col-sm-9">Brown</dd>
-
-			  <dt class="col-sm-3">Delivery</dt>
-			  <dd class="col-sm-9">Russia, USA, and Europe </dd>
+			  <dd class="col-sm-9">{{ $product-> color }}</dd>
 			</dl>
 
 			<hr>

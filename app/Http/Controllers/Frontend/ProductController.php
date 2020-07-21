@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-	public function showDetails($id)
+	public function showDetails($slug)
 	{
 		
 		$data = [];
-		$data['product'] = Product::where('id', $id)->where('active', 1)->first();
+		$data['product'] = Product::where('slug', $slug)->where('active', 1)->first();
 		
 		if ($data['product'] == null) {
 			return redirect()->route('frontend.home');
