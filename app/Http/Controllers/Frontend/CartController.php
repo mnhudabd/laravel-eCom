@@ -48,7 +48,7 @@ class CartController extends Controller
 	
 		session(['cart' => $cart]);
 
-		session()->flush('message', $product->title.' added to cart');
+		session()->flash('message', $product->title.' added to cart');
 
 		return redirect()->route('cart.show');
 

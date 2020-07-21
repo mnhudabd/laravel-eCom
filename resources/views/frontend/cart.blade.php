@@ -24,7 +24,7 @@
 	<tr class="small text-uppercase">
 		<th scope="col">Serial</th>
 	  	<th scope="col">Product</th>
-	  	<th scope="col" width="110">Quantity</th>
+	  	<th scope="col">Quantity</th>
 	  	<th scope="col" width="110">Price</th>
 	  	<th scope="col" class="text-right" width="200"> </th>
 	</tr>
@@ -51,13 +51,8 @@
 			</figure>
 		</td>
 		<td> 
-			<input type="number" name="quantity" value="">
-			<select class="form-control">
-				<option>1</option>
-				<option>2</option>	
-				<option>3</option>	
-				<option>4</option>	
-			</select> 
+			<input type="number" name="quantity" value="{{ $product['quantity'] }}">
+			
 		</td>
 		<td> 
 			<div class="price-wrap"> 
@@ -72,76 +67,7 @@
 	</tr>
 	@endforeach
 	
-
-
-
-<tr>
-	<td>
-			<div class="price-wrap">
-				<small class="title text-dark"> 1 </small>
-			</div>
-		</td>
-	<td>
-		<figure class="itemside">
-			<div class="aside"><img src="images/items/2.jpg" class="img-sm"></div>
-			<figcaption class="info">
-				<a href="#" class="title text-dark">Product name  goes here nice</a>
-				<p class="text-muted small">Size: XL, Color: blue, <br> Brand: Gucci</p>
-			</figcaption>
-		</figure>
-	</td>
-	<td> 
-		<select class="form-control">
-			<option>1</option>
-			<option>2</option>	
-			<option>3</option>	
-			<option>4</option>	
-		</select> 
-	</td>
-	<td> 
-		<div class="price-wrap"> 
-			<var class="price">$149.97</var> 
-			<small  class="text-muted"> $75.00 each </small>  
-		</div> 
-	</td>
-	<td class="text-right"> 
-	<a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip"> <i class="fa fa-heart"></i></a> 
-	<a href="" class="btn btn-light btn-round"> Remove</a>
-	</td>
-</tr>
-<tr>
-	<td>
-			<div class="price-wrap"> 
-				<small class="title text-dark"> 2 </small>
-			</div>
-		</td>
-	<td>
-		<figure class="itemside">
-			<div class="aside"><img src="images/items/3.jpg" class="img-sm"></div>
-			<figcaption class="info">
-				<a href="#" class="title text-dark">Another name of some product goes just here</a>
-				<p class="small text-muted">Size: XL, Color: blue,  Brand: Tissot</p>
-			</figcaption>
-		</figure>
-	</td>
-	<td> 
-		<select class="form-control">
-			<option>1</option>
-			<option>2</option>	
-			<option>3</option>	
-		</select> 
-	</td>
-	<td> 
-		<div class="price-wrap"> 
-			<var class="price">$98.00</var> 
-			<small class="text-muted"> $578.00 each</small> 
-		</div> 
-	</td>
-	<td class="text-right"> 
-		<a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip"> <i class="fa fa-heart"></i></a> 
-		<a href="" class="btn btn-light btn-round"> Remove</a>
-	</td>
-</tr>
+<!--
 
 <tr>
 	<td>
@@ -176,6 +102,7 @@
 		<a href="" class="btn btn-light btn-round"> Remove</a>
 	</td>
 </tr>
+-->
 
 
 </tbody>
