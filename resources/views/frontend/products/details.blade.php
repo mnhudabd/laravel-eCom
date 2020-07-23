@@ -70,7 +70,7 @@
 
 			<dl class="row">
 			  <dt class="col-sm-3">Brand#</dt>
-			  <dd class="col-sm-9">{{ $product-> model }}</dd>
+			  <dd class="col-sm-9">{{ $product-> brand }}</dd>
 
 			  <dt class="col-sm-3">Color</dt>
 			  <dd class="col-sm-9">{{ $product-> color }}</dd>
@@ -116,12 +116,12 @@
 
 
 				<dl class="row">
-				  <dt class="col-sm-5"><a href="#" class="btn  btn-primary"> Buy now </a></dt>
+				  <dt class="col-sm-5"><a href="#" class="btn btn-lg  btn-primary"> Buy now </a></dt>
 				  <dd class="col-sm-7">
 				  	<form action="{{ route('cart.add') }}" method="post">
 						@csrf
 						<input type="hidden" name="product_id" value="{{ $product->id }}">
-						<button type="submit" class="btn  btn-outline-primary"> 
+						<button type="submit" class="btn btn-lg  btn-outline-primary"> 
 							<span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  
 						</button>
 					</form>

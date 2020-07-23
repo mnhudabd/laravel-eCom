@@ -15,6 +15,7 @@ class CartController extends Controller
     		
     		$data = [];
     		$data['cart'] = session()->has('cart') ? session()->get('cart') : [];
+    		$data['total'] = array_sum(array_column($data['cart'], 'price'));
 
     		return view('frontend.cart', $data);
 
@@ -52,6 +53,11 @@ class CartController extends Controller
 
 		return redirect()->route('cart.show');
 
+
+    }
+
+    public function removeFromCart(Request $request)
+    {
 
     }
 }

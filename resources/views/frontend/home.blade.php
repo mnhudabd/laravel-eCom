@@ -39,7 +39,7 @@
 
                         @if($product -> sale_price !==  null && $product -> sale_price > 0)
 
-                            ৳ <strike>{{ $product-> price }}</strike> ৳ {{ $product -> sale_price }}
+                            ৳ <strike>{{ $product-> price }}</strike><br> ৳ {{ $product -> sale_price }}
                          @else
 
                           ৳{{ $product-> price }}
@@ -58,7 +58,7 @@
                     <div class="btn-group">
                         <form action="{{ route('cart.add') }}" method="post">
                             @csrf
-                            <input type="hidden" name="product_id" value="{{ $product -> id }}">
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
                             <button type="submit" class="btn btn-sm btn-outline-primary"> 
                                 <span class="text">Add to cart</span>  
                             </button>

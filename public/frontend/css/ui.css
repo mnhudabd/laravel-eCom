@@ -1173,5 +1173,8 @@ a[class*='card'] {
   font-weight: bold;
   margin-right: 5px;
   display: block; }
+input.qty-srishty {
+  width: 80px;
+}
 
 /*# sourceMappingURL=ui.css.map */
