@@ -1113,7 +1113,7 @@ a[class*='card'] {
 /* ================== PAGES =================== */
 /* ================ PAGES HEADER ================== */
 .section-pagetop {
-  padding: 45px 0; }
+  padding: 25px 0; }
 
 /* ================== PAGE DETAILS ==================  */
 .gallery-wrap .img-big-wrap {
@@ -1175,6 +1175,11 @@ a[class*='card'] {
   display: block; }
 input.qty-srishty {
   width: 80px;
+}
+form.remove-srishty {
+  width: 80px;
+  float: right;
+  margin-left: 10px;
 }
 
 /*# sourceMappingURL=ui.css.map */

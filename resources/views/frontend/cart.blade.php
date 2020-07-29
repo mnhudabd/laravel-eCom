@@ -17,9 +17,92 @@
 
 <div class="row">
 	<main class="col-md-9">
+		
 		@if(session()->has('message'))
 			<div class="alert alert-success">
 				{{ session()->get('message') }}
+			</div>
+
+		@endif
+
+		@if(empty($cart))
+			<div class="alert alert-info">
+				To purchase please add <strong><a href="{{ route('frontend.home') }}">Product / Products</a></strong> to your cart, Your cart is empty.
+			</div>
+		@else
+		<table class="table table-borderless table-responsive table-shopping-cart">
+			<thead class="text-muted">
+				<tr class="small text-uppercase">
+					<th scope="col">Serial</th>
+				  	<th scope="col">Product</th>
+				  	<th scope="col" width="110">Unit Price</th>
+				  	<th scope="col">Quantity</th>
+				  	<th scope="col" width="110">Price </th>
+				  	<th scope="col" class="text-right" width="200"> </th>
+				</tr>
+			</thead>
+			<tbody>
+
+				@php $i = 1 @endphp
+
+				@foreach($cart as $key => $product)
+				<tr>
+					<td>
+						<div class="price-wrap"> 
+							<small  class="title text-dark"> {{ $i++ }} </small> 
+						</div>
+					</td>
+					<td>
+						<figure class="itemside">
+							<div class="aside">
+								<img src="images/items/1.jpg" class="img-sm"></div>
+							<figcaption class="info">
+								<a href="#" class="title text-dark">{{ $product['title'] }}</a>
+								<p class="text-muted small">Size: XL, Color: blue, <br> Brand:srishty </p>
+							</figcaption>
+						</figure>
+					</td>
+					<td> 
+						<div class="price-wrap"> 
+							<var class="price">৳{{ number_format($product['unit_price'], 2) }}</var> 
+						</div>
+					</td>
+					<td> 
+						<input class="qty-srishty" type="number" name="quantity" value="{{ $product['quantity'] }}">
+						
+					</td>
+					<td> 
+						<div class="price-wrap"> 
+							<var class="price">৳{{ number_format($product['total_price'], 2) }}</var> 
+						</div>
+					</td>
+					<td class="text-right"> 
+						<a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip">
+						<i class="fa fa-heart"></i></a> 
+						<form class="remove-srishty" action="{{ route('cart.remove') }}" method="post">
+							@csrf
+							<input type="hidden" name="product_id" value="{{ $key }}">
+							<button type="submit" class="btn  btn-light">
+								Remove
+							</button>
+						</form>
+					</td>
+				</tr>
+				@endforeach
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>Total=</td>
+					<td>৳{{ $total }}</td>
+					<td></td>
+				</tr>
+			</tbody>
+			</table>
+			<a href="{{ route('cart.clear') }}" class="btn btn-danger">Clear Cart</a>
+
+			<div class="alert alert-success mt-3">
+				<p class="icontext"><i class="icon text-success fa fa-truck"></i> Free Delivery within 10 August 2020 for Dhaka city</p>
 			</div>
 
 		@endif
@@ -29,65 +112,7 @@
 
 	<div class="card">
 
-	<table class="table table-borderless table-responsive table-shopping-cart">
-	<thead class="text-muted">
-		<tr class="small text-uppercase">
-			<th scope="col">Serial</th>
-		  	<th scope="col">Product</th>
-		  	<th scope="col">Quantity</th>
-		  	<th scope="col" width="110">Price</th>
-		  	<th scope="col" class="text-right" width="200"> </th>
-		</tr>
-	</thead>
-	<tbody>
-
-		@php $i = 1 @endphp
-
-		@foreach($cart as $product)
-		<tr>
-			<td>
-				<div class="price-wrap"> 
-					<small  class="title text-dark"> {{ $i++ }} </small> 
-				</div>
-			</td>
-			<td>
-				<figure class="itemside">
-					<div class="aside">
-						<img src="images/items/1.jpg" class="img-sm"></div>
-					<figcaption class="info">
-						<a href="#" class="title text-dark">{{ $product['title'] }}</a>
-						<p class="text-muted small">Size: XL, Color: blue, <br> Brand: Srishity</p>
-					</figcaption>
-				</figure>
-			</td>
-			<td> 
-				<input class="qty-srishty" type="number" name="quantity" value="{{ $product['quantity'] }}">
-				
-			</td>
-			<td> 
-				<div class="price-wrap"> 
-					<var class="price">৳{{ $product['price'] }}</var> 
-				</div>
-			</td>
-			<td class="text-right"> 
-				<a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip">
-				<i class="fa fa-heart"></i></a> 
-				<a href="" class="btn btn-light"> Remove</a>
-			</td>
-		</tr>
-		@endforeach
-		<tr>
-			<td></td>
-			<td></td>
-			<td>Total=</td>
-			<td>৳{{ $total }}</td>
-			<td></td>
-		</tr>
-
-		
-
-	</tbody>
-	</table>
+	
 
 <!--
 <div class="card-body border-top">
@@ -98,9 +123,7 @@
 -->
 <!-- card.// -->
 
-<div class="alert alert-success mt-3">
-	<p class="icontext"><i class="icon text-success fa fa-truck"></i> Free Delivery within 10 August 2020 for Dhaka city</p>
-</div>
+
 
 	</main> <!-- col.// -->
 	<aside class="col-md-3">
@@ -137,7 +160,7 @@
 					<p class="text-center mb-3">
 						<img src="images/misc/payments.png" height="26">
 					</p>
-					<a href="#" class="btn btn-primary btn-block"> Make Purchase <i class="fa fa-chevron-right"></i> </a>
+					<a href="{{ route('checkout') }}" class="btn btn-primary btn-block"> Make Purchase <i class="fa fa-chevron-right"></i> </a>
 					<a href="{{ route('frontend.home') }}" class="btn btn-light btn-block"><i class="fa fa-chevron-left"></i> Continue Shopping</a>
 					
 			</div> <!-- card-body.// -->

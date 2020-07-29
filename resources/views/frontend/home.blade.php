@@ -16,9 +16,9 @@
 <div class="row">
     @foreach($products as $product)
     <div class="col-md-3">
-        <div href="#" class="card card-product-grid">
+        <div href="{{ route('product.details', $product -> slug) }}" class="card card-product-grid">
             <a href="{{ route('product.details', $product -> slug) }}" class="img-wrap overlay"> 
-                <img class="" src="{{ $product->getFirstMediaUrl('products') }}" alt="{{ $product -> title }}">  </a> 
+                <img class="" src="{{ $product->getFirstMediaUrl('products') }}" alt="{{ $product -> title }}">  </a>  
             <figcaption class="info-wrap">
                 <a href="{{ route('product.details', $product -> slug) }}" class="title">{{ $product -> title }}</a>
                 
@@ -56,6 +56,10 @@
                         </button>
                     </div>
                     <div class="btn-group">
+                        <a href="{{ route('product.details', $product -> slug) }}" class="btn btn-sm  btn-outline-primary"> 
+                            <span class="text">View Product</span>  
+                        </a>
+                        <!--
                         <form action="{{ route('cart.add') }}" method="post">
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -63,6 +67,7 @@
                                 <span class="text">Add to cart</span>  
                             </button>
                         </form>
+                        -->
                     </div>
                 </div> 
                 

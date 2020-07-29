@@ -53,13 +53,25 @@
                 <span class="badge badge-pill badge-danger notify">0</span>
             </div>
             <div class="widget-header icontext">
-                <a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
+                @auth()
+                <a href="{{ route('profile') }}" class="icon icon-sm rounded-circle border">
+                    <i class="fa fa-user"></i>
+                </a>
+                @endauth
                 <div class="text">
                     <span class="text-muted">Welcome!</span>
                     <div class="flex-center position-ref full-height">
-                            <div class="top-right links">                            
-                                    <a href="#">Login</a> | 
-                                        <a href="#">Register</a>                              
+                            <div class="top-right links"> 
+                            @guest()                           
+                                <a href="{{ route('login') }}">Login</a> | 
+                                  <a href="{{ route('register') }}">Register</a> |
+                                  @else
+                                    
+                                     
+                                    @auth()
+                                    <a href="{{ route('logout') }}">Logout</a>
+                                    @endauth 
+                                     @endguest                             
                             </div>
                     </div>
                 </div>
@@ -82,7 +94,7 @@
           <a class="nav-link pl-0" data-toggle="dropdown" href="#"><strong> <i class="fa fa-bars"></i> &nbsp  Categories</strong></a>
           <div class="dropdown-menu">
                 @foreach($categories as $category)
-                    <a class="dropdown-item" href="{{ $category -> slug }}"> {{ $category -> name }} </a>
+                    <a class="dropdown-item" href="{{ $category->slug }}">{{ $category->name }}</a>
                 @endforeach
           </div> 
         </li>
