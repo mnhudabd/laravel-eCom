@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Notifications\RegistrationEmailNotification;
 use App\Models\User;
+use App\Models\Order;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -140,6 +141,13 @@ class AuthController extends Controller
         auth()->logout();
 
         return redirect('/');
+    }
+
+    public function profile()
+    {
+        $data = [];
+        $data['orders'] = Order::where('user_id', auth()->user()->id)->get();
+        return view('frontend.auth.profile', $data);
     }
 
 }

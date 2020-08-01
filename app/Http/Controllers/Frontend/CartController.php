@@ -146,4 +146,13 @@ class CartController extends Controller
 
     	return redirect('/');
     }
+
+    public function showOrder($id)
+    {
+    	
+    	$data = [];
+    	$data['order'] = Order::findOrFail($id);
+
+    	return view('frontend.orders.details', $data);
+    }
 }

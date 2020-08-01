@@ -36,12 +36,40 @@ Route::group(['namespace' => 'Frontend'], function(){
 
 		Route::post('/order', 'CartController@processOrder')->name('order');
 
+		Route::get('/order/{id}', 'CartController@showOrder')->name('order.details');
+
+
 		Route::get('/profile', 'AuthController@profile')->name('profile');
 		Route::get('/logout', 'AuthController@logout')->name('logout');
 
 	});
+
+
 	
 });
+
+/* ---------BackEnd ----------  */
+
+Route::group(['namespace' => 'Backend'], function(){
+
+	Route::get('/admin', 'AdminController@index')->name('admin');
+	Route::get('/logout', 'SuperAdminController@superAdmin')->name('logout');
+	Route::get('/dashboard', 'AdminController@showDashboard')->name('dashboard');
+	Route::post('/admin-dashboard', 'AdminController@dashboard')->name('admin-dashboard');
+
+	Route::get('/add-category', 'CategoryController@index')->name('add-category');
+	Route::get('/all-category', 'CategoryController@allCategory')->name('all-category');
+	Route::post('/save-category', 'CategoryController@saveCategory')->name('save-category');
+	Route::get('/inactive_category/{id}', 'CategoryController@inactiveCategory')->name('inactive_category');
+	Route::get('/active_category/{id}', 'CategoryController@activeCategory')->name('active_category');
+
+
+
+});
+
+
+
+
 
 /*
 Route::get('/', function () {

@@ -18,6 +18,8 @@ class CreateCategoriesTable extends Migration
             $table->string('name', 128)->unique();
             $table->string('slug', 128)->unique();
             $table->string('banner', 128);
+            $table->longText('description')->nullable();
+            $table->integer('publication_status')->default(0);
             $table->unsignedInteger('category_id')->default();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();

@@ -29,6 +29,8 @@
 
 		</div>
     @auth()
+  </div>
+
   <div class="container">
   	<div class="row">
 
